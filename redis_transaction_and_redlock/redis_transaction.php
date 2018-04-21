@@ -47,6 +47,9 @@ function listItem($conn,$itemId,$sellerId,$price){
  * @param $lprice
  */
 function purchase($conn, $buyerId, $itemId, $sellerId, $lprice){
+
+    $retryTimes = 0;
+
     $buyer = "users:".$buyerId;
     $seller = "users:".$sellerId;
     $item = "$itemId.$sellerId";
@@ -55,13 +58,14 @@ function purchase($conn, $buyerId, $itemId, $sellerId, $lprice){
  
     while (time() < $end){
 
-        $conn->watch(array("market:", $buyer));
+        $conn->watch("market:");
         
         $price = $conn->zScore("market:", $item);
         $funds = $conn->hGet($buyer, "funds");
         if ($lprice != $price || $price > $funds){
+            $retryTimes++;
             $conn->unwatch();
-            return null;
+            continue;
         }
         
         $conn->multi();
@@ -72,9 +76,14 @@ function purchase($conn, $buyerId, $itemId, $sellerId, $lprice){
         $result = $conn->exec();
 
         if($result){
+            echo "本次购买尝试次数: $retryTimes\n";
             return true;
+        } else {
+            $retryTimes++;
         }
     }
+
+    echo "本次购买尝试次数: $retryTimes\n";
 
     return false;
 }
@@ -131,38 +140,28 @@ function buyerP(swoole_process $worker) {
 
     $items = $redis->zRange('market:', 0, -1, true);
 
-    $retryTimes = 0;
-    $successBuy = 0;
-
     usleep(1000);
 
-    while($redis->zSize('market:') > 0 && $retryTimes < 1000) {
+    while($redis->zSize('market:') > 0) {
 
         foreach($items as $key=>$value) {
             $itemId = explode(".", $key)[0];
             $purchaseValue = purchase($redis,$buyerId,$itemId,$sellerId,$value);
 
-            if($purchaseValue === null){
-                echo "价格变动或余额不足\n";
-                $retryTimes++;
-            }else if($purchaseValue){
-                $successBuy++;
+            if($purchaseValue){
                 echo "购买成功\n";
             }else{
-                echo "商品情况发生变动，无法购买\n";
-                $retryTimes++;
+                echo "10秒内未完成购买\n";
             }
         }
 
         
     }
-
-    echo "失败次数:".$retryTimes.PHP_EOL;
-    echo "成功购买:".$successBuy.PHP_EOL;
     $worker->exit(0);
 }
 
-swoole_process::signal(SIGCHLD, function($sig) {
+
+swoole_process::signal(SIGCHLD, function($sig){
     //必须为false，非阻塞模式
     while($ret =  swoole_process::wait(false)) {
         echo "PID={$ret['pid']}\n";
@@ -176,3 +175,4 @@ $buy3Process = new Swoole\Process("buyerP");
 $buy1Process->start();
 $buy2Process->start();
 $buy3Process->start();
+
