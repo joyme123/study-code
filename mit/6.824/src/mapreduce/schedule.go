@@ -38,46 +38,65 @@ func schedule(jobName string, mapFiles []string, nReduce int, phase jobPhase, re
 	var wg sync.WaitGroup
 
 	if phase == mapPhase {
-		log.Println("map任务：", ntasks)
+		log.Printf("schedule map任务：%d,文件%v\n", ntasks, mapFiles)
 		// map过程
 		leftTask := ntasks
 		for index, file := range mapFiles {
+			log.Printf("map任务编号：%d, 文件名:%s\n", index, file)
 			srv := <-registerChan
-			log.Println("map任务编号：", index)
+			log.Printf("srv := <-registerChan完成")
 			taskArgs := DoTaskArgs{JobName: jobName, File: file, Phase: phase, TaskNumber: index, NumOtherPhase: nOther}
 			wg.Add(1)
 			leftTask--
 			// 使用call() 来调用worker协程工作
 			go func(registerChan chan string, rpcname string, args interface{}, leftTask int) {
-				call(srv, rpcname, args, nil)
-				if leftTask > 1 {
-					registerChan <- srv
+				res := call(srv, rpcname, args, nil)
+
+				if res {
+					if leftTask > 1 {
+						registerChan <- srv
+					}
+					// log.Println("map任务编号：完成")
+				} else {
+					// 重新执行
+					log.Println("重新执行")
+					schedule(taskArgs.JobName, []string{taskArgs.File}, taskArgs.NumOtherPhase, taskArgs.Phase, registerChan)
+					log.Println("重新执行结束")
 				}
 				wg.Done()
-				log.Println("map任务编号：完成")
 			}(registerChan, "Worker.DoTask", taskArgs, leftTask)
 		}
-		log.Println("进入wait")
+		// log.Println("进入wait")
 		wg.Wait()
 	} else if phase == reducePhase {
-		log.Println("reduce任务：", ntasks)
+		log.Printf("schedule reduce任务：%d,任务数:%v\n", ntasks, nReduce)
 		// reduce过程
 		leftTask := ntasks
 		for i := 0; i < nReduce; i++ {
-			srv := <-registerChan
 			log.Println("reduce任务编号：", i)
+			srv := <-registerChan
+			log.Println("srv := <-registerChan完成")
 			taskArgs := DoTaskArgs{JobName: jobName, File: "", Phase: phase, TaskNumber: i, NumOtherPhase: nOther}
 			wg.Add(1)
-			go func(registerChan chan string, rpcname string, args interface{}) {
-				call(srv, rpcname, args, nil)
-				if leftTask > 1 {
-					registerChan <- srv
+			leftTask--
+			go func(registerChan chan string, rpcname string, args interface{}, leftTask int) {
+				res := call(srv, rpcname, args, nil)
+
+				if res {
+					if leftTask > 1 {
+						registerChan <- srv
+					}
+					// log.Println("reduce任务编号完成")
+				} else {
+					log.Println("重新执行")
+					schedule(taskArgs.JobName, []string{taskArgs.File}, leftTask, taskArgs.Phase, registerChan)
+					log.Println("重新执行结束")
 				}
 				wg.Done()
-				log.Println("reduce任务编号完成")
-			}(registerChan, "Worker.DoTask", taskArgs)
+
+			}(registerChan, "Worker.DoTask", taskArgs, leftTask)
 		}
-		// wg.Wait()
+		wg.Wait()
 	}
 	fmt.Printf("Schedule: %v done\n", phase)
 }
