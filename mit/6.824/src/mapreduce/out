@@ -1,105 +1,67 @@
-2018/04/23 18:17:17 rpc.Register: method "CleanupFiles" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 rpc.Register: method "Wait" has 1 input parameters; needs exactly three
-/var/tmp/824-1000/mr21506-master: Starting Map/Reduce task test
+/var/tmp/824-1000/mr13981-master: Starting Map/Reduce task test
 Schedule: 20 mapPhase tasks (10 I/Os)
-2018/04/23 18:17:17 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:17 map任务编号： 0
-2018/04/23 18:17:17 map任务编号： 1
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #1 on file 824-mrinput-1.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #0 on file 824-mrinput-0.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #0 done
-2018/04/23 18:17:17 map任务编号： 2
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #2 on file 824-mrinput-2.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #1 done
-2018/04/23 18:17:17 map任务编号： 3
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #3 on file 824-mrinput-3.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #2 done
-2018/04/23 18:17:17 map任务编号： 4
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #4 on file 824-mrinput-4.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #3 done
-2018/04/23 18:17:17 map任务编号： 5
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #5 on file 824-mrinput-5.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #4 done
-2018/04/23 18:17:17 map任务编号： 6
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #6 on file 824-mrinput-6.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #5 done
-2018/04/23 18:17:17 map任务编号： 7
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #7 on file 824-mrinput-7.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #6 done
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #7 done
-2018/04/23 18:17:17 map任务编号： 8
-2018/04/23 18:17:17 map任务编号： 9
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #9 on file 824-mrinput-9.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #8 on file 824-mrinput-8.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #8 done
-2018/04/23 18:17:18 map任务编号： 10
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #10 on file 824-mrinput-10.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #9 done
-2018/04/23 18:17:18 map任务编号： 11
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #11 on file 824-mrinput-11.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #10 done
-2018/04/23 18:17:18 map任务编号： 12
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #12 on file 824-mrinput-12.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #11 done
-2018/04/23 18:17:18 map任务编号： 13
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #13 on file 824-mrinput-13.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #12 done
-2018/04/23 18:17:18 map任务编号： 14
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #14 on file 824-mrinput-14.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #13 done
-2018/04/23 18:17:18 map任务编号： 15
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #15 on file 824-mrinput-15.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #14 done
-2018/04/23 18:17:18 map任务编号： 16
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #16 on file 824-mrinput-16.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #15 done
-2018/04/23 18:17:18 map任务编号： 17
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #17 on file 824-mrinput-17.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #16 done
-2018/04/23 18:17:18 map任务编号： 18
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #18 on file 824-mrinput-18.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #17 done
-2018/04/23 18:17:18 map任务编号： 19
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #19 on file 824-mrinput-19.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #18 done
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #19 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #0 on file 824-mrinput-0.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #1 on file 824-mrinput-1.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #0 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #2 on file 824-mrinput-2.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #1 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #3 on file 824-mrinput-3.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #2 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #4 on file 824-mrinput-4.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #3 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #5 on file 824-mrinput-5.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #4 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #6 on file 824-mrinput-6.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #5 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #7 on file 824-mrinput-7.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #6 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #8 on file 824-mrinput-8.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #7 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #9 on file 824-mrinput-9.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #8 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #10 on file 824-mrinput-10.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #9 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #11 on file 824-mrinput-11.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #10 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #12 on file 824-mrinput-12.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #11 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #13 on file 824-mrinput-13.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #12 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #14 on file 824-mrinput-14.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #13 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #15 on file 824-mrinput-15.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #14 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #16 on file 824-mrinput-16.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #15 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #17 on file 824-mrinput-17.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #16 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #18 on file 824-mrinput-18.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #17 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #19 on file 824-mrinput-19.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #18 done
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #19 done
 Schedule: mapPhase done
 Schedule: 10 reducePhase tasks (20 I/Os)
-2018/04/23 18:17:18 reduce任务编号： 0
-2018/04/23 18:17:18 reduce任务编号： 1
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #1 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #0 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #1 done
-2018/04/23 18:17:19 reduce任务编号： 2
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #2 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #0 done
-2018/04/23 18:17:19 reduce任务编号： 3
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #3 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #2 done
-2018/04/23 18:17:19 reduce任务编号： 4
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #4 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #3 done
-2018/04/23 18:17:19 reduce任务编号： 5
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #5 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #4 done
-2018/04/23 18:17:19 reduce任务编号： 6
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #6 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #5 done
-2018/04/23 18:17:19 reduce任务编号： 7
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #7 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #6 done
-2018/04/23 18:17:20 reduce任务编号： 8
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #8 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #7 done
-2018/04/23 18:17:20 reduce任务编号： 9
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #9 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #8 done
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #9 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #0 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #1 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #1 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #2 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #0 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #3 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #2 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #4 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #3 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #5 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #4 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #6 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #5 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #7 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #6 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #8 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #7 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #9 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #8 done
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #9 done
 Schedule: reducePhase done
 Merge: read mrtmp.test-res-0
 Merge: read mrtmp.test-res-1
@@ -111,100 +73,82 @@ Merge: read mrtmp.test-res-6
 Merge: read mrtmp.test-res-7
 Merge: read mrtmp.test-res-8
 Merge: read mrtmp.test-res-9
-/var/tmp/824-1000/mr21506-master: Map/Reduce task completed
-2018/04/23 18:17:25 rpc.Register: method "CleanupFiles" has 1 input parameters; needs exactly three
-2018/04/23 18:17:25 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:25 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:25 rpc.Register: method "Wait" has 1 input parameters; needs exactly three
-/var/tmp/824-1000/mr21506-master: Starting Map/Reduce task test
-2018/04/23 18:17:25 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:25 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:25 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/04/23 18:17:25 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
+/var/tmp/824-1000/mr13981-master: Map/Reduce task completed
+/var/tmp/824-1000/mr13981-master: Starting Map/Reduce task test
 Schedule: 20 mapPhase tasks (10 I/Os)
-2018/04/23 18:17:25 map任务编号： 0
-2018/04/23 18:17:25 map任务编号： 1
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #0 on file 824-mrinput-0.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #1 on file 824-mrinput-1.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #1 done
-2018/04/23 18:17:25 map任务编号： 2
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #2 on file 824-mrinput-2.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #2 done
-2018/04/23 18:17:25 map任务编号： 3
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #3 on file 824-mrinput-3.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #3 done
-2018/04/23 18:17:25 map任务编号： 4
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #4 on file 824-mrinput-4.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #4 done
-2018/04/23 18:17:25 map任务编号： 5
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #5 on file 824-mrinput-5.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #5 done
-2018/04/23 18:17:25 map任务编号： 6
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #6 on file 824-mrinput-6.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #6 done
-2018/04/23 18:17:25 map任务编号： 7
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #7 on file 824-mrinput-7.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #7 done
-2018/04/23 18:17:25 map任务编号： 8
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #8 on file 824-mrinput-8.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #8 done
-2018/04/23 18:17:26 map任务编号： 9
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #9 on file 824-mrinput-9.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #9 done
-2018/04/23 18:17:26 map任务编号： 10
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #10 on file 824-mrinput-10.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #10 done
-2018/04/23 18:17:26 map任务编号： 11
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #11 on file 824-mrinput-11.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #11 done
-2018/04/23 18:17:26 map任务编号： 12
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #12 on file 824-mrinput-12.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #12 done
-2018/04/23 18:17:26 map任务编号： 13
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #13 on file 824-mrinput-13.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #13 done
-2018/04/23 18:17:26 map任务编号： 14
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #14 on file 824-mrinput-14.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #14 done
-2018/04/23 18:17:26 map任务编号： 15
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #15 on file 824-mrinput-15.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #0 done
-2018/04/23 18:17:26 map任务编号： 16
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #16 on file 824-mrinput-16.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #15 done
-2018/04/23 18:17:26 map任务编号： 17
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #17 on file 824-mrinput-17.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #16 done
-2018/04/23 18:17:26 map任务编号： 18
-/var/tmp/824-1000/mr21506-worker1: given mapPhase task #18 on file 824-mrinput-18.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #17 done
-2018/04/23 18:17:26 map任务编号： 19
-/var/tmp/824-1000/mr21506-worker0: given mapPhase task #19 on file 824-mrinput-19.txt (nios: 10)
-/var/tmp/824-1000/mr21506-worker1: mapPhase task #18 done
-/var/tmp/824-1000/mr21506-worker0: mapPhase task #19 done
+/var/tmp/824-1000/mr13981-worker1: given mapPhase task #1 on file 824-mrinput-1.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #0 on file 824-mrinput-0.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #0 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #2 on file 824-mrinput-2.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #2 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #3 on file 824-mrinput-3.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #3 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #4 on file 824-mrinput-4.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #4 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #5 on file 824-mrinput-5.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #5 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #6 on file 824-mrinput-6.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #6 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #7 on file 824-mrinput-7.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #7 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #8 on file 824-mrinput-8.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #8 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #9 on file 824-mrinput-9.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #9 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #10 on file 824-mrinput-10.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #10 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #11 on file 824-mrinput-11.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #11 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #12 on file 824-mrinput-12.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #12 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #13 on file 824-mrinput-13.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #13 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #14 on file 824-mrinput-14.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #14 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #15 on file 824-mrinput-15.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #15 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #16 on file 824-mrinput-16.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #16 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #17 on file 824-mrinput-17.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #17 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #18 on file 824-mrinput-18.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #18 done
+/var/tmp/824-1000/mr13981-worker0: given mapPhase task #19 on file 824-mrinput-19.txt (nios: 10)
+/var/tmp/824-1000/mr13981-worker0: mapPhase task #19 done
+/var/tmp/824-1000/mr13981-worker1: mapPhase task #1 done
 Schedule: mapPhase done
 Schedule: 10 reducePhase tasks (20 I/Os)
-2018/04/23 18:17:26 reduce任务编号： 0
-2018/04/23 18:17:26 reduce任务编号： 1
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #0 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #1 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #1 done
-2018/04/23 18:17:27 reduce任务编号： 2
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #2 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #0 done
-2018/04/23 18:17:27 reduce任务编号： 3
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #3 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #2 done
-2018/04/23 18:17:27 reduce任务编号： 4
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #4 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #3 done
-2018/04/23 18:17:27 reduce任务编号： 5
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #5 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker0: reducePhase task #4 done
-2018/04/23 18:17:27 reduce任务编号： 6
-/var/tmp/824-1000/mr21506-worker0: given reducePhase task #6 on file  (nios: 20)
-/var/tmp/824-1000/mr21506-worker1: reducePhase task #5 done
-2018/04/23 18:17:27 reduce任务编号： 7
-/var/tmp/824-1000/mr21506-worker1: given reducePhase task #7 on file  (nios: 20)
-signal: interrupt
-FAIL	_/home/jiang/projects/study-code/mit/6.824/src/mapreduce	10.887s
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #0 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #1 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #1 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #2 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #0 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #3 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #2 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #4 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #3 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #5 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #4 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #6 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #5 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #7 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #6 done
+/var/tmp/824-1000/mr13981-worker1: given reducePhase task #8 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #7 done
+/var/tmp/824-1000/mr13981-worker0: given reducePhase task #9 on file  (nios: 20)
+/var/tmp/824-1000/mr13981-worker1: reducePhase task #8 done
+/var/tmp/824-1000/mr13981-worker0: reducePhase task #9 done
+Schedule: reducePhase done
+Merge: read mrtmp.test-res-0
+Merge: read mrtmp.test-res-1
+Merge: read mrtmp.test-res-2
+Merge: read mrtmp.test-res-3
+Merge: read mrtmp.test-res-4
+Merge: read mrtmp.test-res-5
+Merge: read mrtmp.test-res-6
+Merge: read mrtmp.test-res-7
+Merge: read mrtmp.test-res-8
+Merge: read mrtmp.test-res-9
+/var/tmp/824-1000/mr13981-master: Map/Reduce task completed
+PASS
+ok  	_/home/jiang/projects/study-code/mit/6.824/src/mapreduce	11.396s

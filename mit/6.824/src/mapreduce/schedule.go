@@ -36,66 +36,102 @@ func schedule(jobName string, mapFiles []string, nReduce int, phase jobPhase, re
 	//
 
 	var wg sync.WaitGroup
+	var mu sync.Mutex
 
 	if phase == mapPhase {
-		log.Printf("schedule map任务：%d,文件%v\n", ntasks, mapFiles)
+		// log.Printf("schedule map任务：%d,文件%v\n", ntasks, mapFiles)
 		// map过程
 		leftTask := ntasks
-		for index, file := range mapFiles {
+		for index := 0; ; {
+
+			mu.Lock()
+			if index >= ntasks {
+				mu.Unlock()
+				break
+			} else {
+				mu.Unlock()
+			}
+
+			file := mapFiles[index]
 			log.Printf("map任务编号：%d, 文件名:%s\n", index, file)
 			srv := <-registerChan
-			log.Printf("srv := <-registerChan完成")
+			// log.Printf("srv := <-registerChan完成")
 			taskArgs := DoTaskArgs{JobName: jobName, File: file, Phase: phase, TaskNumber: index, NumOtherPhase: nOther}
 			wg.Add(1)
-			leftTask--
 			// 使用call() 来调用worker协程工作
 			go func(registerChan chan string, rpcname string, args interface{}, leftTask int) {
 				res := call(srv, rpcname, args, nil)
 
 				if res {
-					if leftTask > 1 {
+					mu.Lock()
+					if index < ntasks {
+						mu.Unlock()
 						registerChan <- srv
+					} else {
+						mu.Unlock()
 					}
+
 					// log.Println("map任务编号：完成")
 				} else {
 					// 重新执行
-					log.Println("重新执行")
-					schedule(taskArgs.JobName, []string{taskArgs.File}, taskArgs.NumOtherPhase, taskArgs.Phase, registerChan)
-					log.Println("重新执行结束")
+					mu.Lock()
+					index--
+					mu.Unlock()
 				}
+
 				wg.Done()
+
 			}(registerChan, "Worker.DoTask", taskArgs, leftTask)
+
+			mu.Lock()
+			index++
+			mu.Unlock()
 		}
-		// log.Println("进入wait")
 		wg.Wait()
 	} else if phase == reducePhase {
 		log.Printf("schedule reduce任务：%d,任务数:%v\n", ntasks, nReduce)
 		// reduce过程
 		leftTask := ntasks
-		for i := 0; i < nReduce; i++ {
-			log.Println("reduce任务编号：", i)
+		for index := 0; ; {
+
+			mu.Lock()
+			if index >= ntasks {
+				mu.Unlock()
+				break
+			}
+			mu.Unlock()
+
+			// log.Println("reduce任务编号：", index)
 			srv := <-registerChan
-			log.Println("srv := <-registerChan完成")
-			taskArgs := DoTaskArgs{JobName: jobName, File: "", Phase: phase, TaskNumber: i, NumOtherPhase: nOther}
+			// log.Println("srv := <-registerChan完成")
+			taskArgs := DoTaskArgs{JobName: jobName, File: "", Phase: phase, TaskNumber: index, NumOtherPhase: nOther}
 			wg.Add(1)
-			leftTask--
 			go func(registerChan chan string, rpcname string, args interface{}, leftTask int) {
 				res := call(srv, rpcname, args, nil)
 
 				if res {
-					if leftTask > 1 {
+					mu.Lock()
+					if index < ntasks {
+						mu.Unlock()
 						registerChan <- srv
+					} else {
+						mu.Unlock()
 					}
+
 					// log.Println("reduce任务编号完成")
 				} else {
-					log.Println("重新执行")
-					schedule(taskArgs.JobName, []string{taskArgs.File}, leftTask, taskArgs.Phase, registerChan)
-					log.Println("重新执行结束")
+					mu.Lock()
+					index--
+					mu.Unlock()
 				}
 				wg.Done()
 
 			}(registerChan, "Worker.DoTask", taskArgs, leftTask)
+			mu.Lock()
+			index++
+			mu.Unlock()
 		}
+
 		wg.Wait()
 	}
 	fmt.Printf("Schedule: %v done\n", phase)
