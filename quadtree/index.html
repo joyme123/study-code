@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>四叉树实例</title>
+    <script src="quadtree.js"></script>
+    <style>
+        .main-wrapper {
+            width: 800px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body onload="run(20)">
+    <div class="main-wrapper">
+        <canvas width="800" height="600" style="border: 1px solid #ccc" id="canvas">
+            你的浏览器不支持canvas
+        </canvas>
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="run(20)">20</button>
+        <button onclick="run(50)">50</button>
+        <button onclick="run(100)">100</button>
+        <button onclick="run(200)">200</button>
+        <button onclick="run(500)">500</button>
+    </div>
+</body>
+
+<script>
+    var palette = ['blue','green','pink','yellow'];
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext('2d')
+    
+    function run(num) {
+        ctx.clearRect(0,0,800,600);
+        var quadTree = new QuadTree(new Point(0,0), new Point(800, 600))
+        var level = 0;
+        // 随机生成20个
+        for(var i = 0; i < num; i++) {
+            var x1 = Math.ceil(Math.random()*700)
+            var y1 = Math.ceil(Math.random()*500)
+
+            var x2 = x1 + 60;
+            var y2 = y1 + 70;
+
+
+            var item = new Item(new Point(x1,y1), new Point(x2, y2))
+    
+            quadTree.insert(item)
+        }
+        // 将四叉树画在canvas上，注意坐标系的转换
+        var node = quadTree.root;
+
+        paint(node, level);
+
+        var find = quadTree.query({x:0, y:0}, {x:800, y:600})
+        console.log(find)
+        find.forEach(function(item) {
+            ctx.fillStyle = "red"
+            var x = item.topLeftP.x;
+            var y = item.topLeftP.y;
+            var width = item.botRightP.x - x;
+            var height = item.botRightP.y - y;
+            ctx.fillRect(x, y, width, height);
+        }) 
+    }
+    
+    function paint(node, level) {
+        if (node == null) {
+            return;
+        }
+        
+        var color = palette[level % palette.length]
+
+        ctx.strokeStyle = "black";
+        var x = node.topLeftP.x;
+        var y = node.topLeftP.y;
+        var width = node.botRightP.x - x;
+        var height = node.botRightP.y - y;
+        ctx.strokeRect(x, y, width, height);
+
+        ctx.strokeStyle = color;
+
+        // 画node的边框
+        
+        level++;
+        paint(node.tlNode, level);
+        paint(node.trNode, level);
+        paint(node.blNode, level);
+        paint(node.brNode, level);
+
+        node.data.forEach(function(item) {
+            var x = item.topLeftP.x;
+            var y = item.topLeftP.y;
+            var width = item.botRightP.x - x;
+            var height = item.botRightP.y - y;
+            ctx.strokeRect(x, y, width, height);
+        });
+    }
+
+</script>
+
+</html>
