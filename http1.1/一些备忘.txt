@@ -1,0 +1,21 @@
+所有非法的请求都可以用400来回应
+
+在server做gateway时，如果response有错。可以返回502 bad gateway
+
+header field名字不能重复，除非是逗号分割的list或者是有名的例外
+
+有名的例外:
+Set-Cookie
+
+header的字段名是大小写不敏感的
+
+请求方法大小写敏感
+
+
+content-length的发送是分很多种情况的
+1.先head发content-length，后同一个请求的get不发（待验证）
+2.POST请求中,content-length为0也会发 （待验证）
+3.在语义中没有消息体的methon的请求，不应该发送content-length
+4.在一个视情况而定的GET请求，304的响应应该发送content-length
+5.connect请求，响应头中不能有content-length
+6.状态码1xx，204不能有content-length
