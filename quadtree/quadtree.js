@@ -118,19 +118,19 @@ Node.prototype.pushItem = function (item) {
     } else {
         // 判断item的位置
         if (this.tlNode.inBoundary(item) || this.tlNode.intersect(item)) {
-            this.tlNode.data.push(item);
+            this.tlNode.pushItem(item);
         }
         
         if (this.trNode.inBoundary(item) || this.trNode.intersect(item)) {
-            this.trNode.data.push(item);
+            this.trNode.pushItem(item);
         } 
         
         if (this.blNode.inBoundary(item) || this.blNode.intersect(item)) {
-            this.blNode.data.push(item);
+            this.blNode.pushItem(item);
         }
         
         if (this.brNode.inBoundary(item) || this.brNode.intersect(item)) {
-            this.brNode.data.push(item);
+            this.brNode.pushItem(item);
         }
     }
 }
@@ -204,28 +204,28 @@ QuadTree.prototype.queryNode = function(node, leftTop, rightBot) {
         if (curNode.tlNode.intersect(item)) {
             // 分割
             var newQuery = intersectRect(curNode.tlNode, item);
-            console.log("分割的图形", newQuery)
+            // console.log("分割的图形", newQuery)
             result = result.concat(this.queryNode(curNode.tlNode, newQuery.topLeftP, newQuery.botRightP) )
         }
 
         if (curNode.trNode.intersect(item)) {
             // 分割
             var newQuery = intersectRect(curNode.trNode, item);
-            console.log("分割的图形", newQuery)
+            // console.log("分割的图形", newQuery)
             result = result.concat(this.queryNode(curNode.trNode, newQuery.topLeftP, newQuery.botRightP))
         }
 
         if (curNode.blNode.intersect(item)) {
             // 分割
             var newQuery = intersectRect(curNode.blNode, item);
-            console.log("分割的图形", newQuery)
+            // console.log("分割的图形", newQuery)
             result = result.concat(this.queryNode(curNode.blNode, newQuery.topLeftP, newQuery.botRightP) )
         }
 
         if (curNode.brNode.intersect(item)) {
             // 分割
             var newQuery = intersectRect(curNode.brNode, item);
-            console.log("分割的图形", newQuery)
+            // console.log("分割的图形", newQuery)
             result = result.concat(this.queryNode(curNode.brNode, newQuery.topLeftP, newQuery.botRightP) )
         }
 

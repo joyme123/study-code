@@ -19,3 +19,11 @@ content-length的发送是分很多种情况的
 4.在一个视情况而定的GET请求，304的响应应该发送content-length
 5.connect请求，响应头中不能有content-length
 6.状态码1xx，204不能有content-length
+
+
+为了鲁棒性
+消息头中的空格可以是;SP,HTAB, VT (%x0B), FF (%x0C), or bare CR
+消息头的换行:可以只是LF(\n)
+
+
+看到谷歌网页上有的请求头是:开头的，这样的解析应该怎么做

@@ -54,12 +54,15 @@
     
             quadTree.insert(item)
         }
+
+        console.log(quadTree)
+
         // 将四叉树画在canvas上，注意坐标系的转换
         var node = quadTree.root;
 
         paint(node, level);
 
-        var find = quadTree.query({x:0, y:0}, {x:800, y:600})
+        var find = quadTree.query({x:0, y:0}, {x:400, y:300})
         console.log(find)
         find.forEach(function(item) {
             ctx.fillStyle = "red"
