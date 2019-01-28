@@ -61,9 +61,10 @@ var Point = function (x, y) {
 
 // 代表出现的矩形物体
 // topLeftP 矩形物体左上角的点
-var Item = function (topLeftP, botRightP) {
+var Item = function (topLeftP, botRightP, id) {
     this.topLeftP = topLeftP;
     this.botRightP = botRightP;
+    this.id = id;
 }
 
 // 四叉树是一个递归结构。每个非叶子节点都有4个指向其他Node的指针
@@ -151,13 +152,13 @@ QuadTree.prototype.insert = function (item) {
     // 找到合适的curNode
     while (curNode.tlNode != null) { // 有子节点
         if (curNode.tlNode.inBoundary(item)) {
-            curNode = curNode.tlNode
+            curNode = curNode.tlNode;
         } else if (curNode.trNode.inBoundary(item)) {
-            curNode = curNode.trNode
+            curNode = curNode.trNode;
         } else if (curNode.blNode.inBoundary(item)) {
-            curNode = curNode.blNode
+            curNode = curNode.blNode;
         } else if (curNode.brNode.inBoundary(item)) {
-            curNode = curNode.brNode
+            curNode = curNode.brNode;
         } else {
             // 如果子节点都不完全包含，则当前点就是要找的合适的点
             break;
@@ -173,6 +174,8 @@ QuadTree.prototype.query = function(leftTop, rightBot) {
 
 /**
  * 给定一个矩形范围，查询在这个范围内的物体
+ * queryNode有一个问题，一个物体在向下划分的时候，可以会处于两个子node里面，这样查出来的结果可能就会有重复。
+ * 这里可以使用一个hashmap来去重
  */
 QuadTree.prototype.queryNode = function(node, leftTop, rightBot) {
     var curNode = node;
@@ -181,20 +184,20 @@ QuadTree.prototype.queryNode = function(node, leftTop, rightBot) {
     // 找到合适的curNode
     while (curNode.tlNode != null) { // 有子节点
         if (curNode.tlNode.inBoundary(item)) {
-            curNode = curNode.tlNode
+            curNode = curNode.tlNode;
         } else if (curNode.trNode.inBoundary(item)) {
-            curNode = curNode.trNode
+            curNode = curNode.trNode;
         } else if (curNode.blNode.inBoundary(item)) {
-            curNode = curNode.blNode
+            curNode = curNode.blNode;
         } else if (curNode.brNode.inBoundary(item)) {
-            curNode = curNode.brNode
+            curNode = curNode.brNode;
         } else {
             // 如果子节点都不完全包含，则当前点就是要找的合适的点
             break;
         }
     }
 
-    var result = new Array();
+    var result = [];
 
     // 检查这个点有没有子节点
     if (curNode.tlNode == null) {
@@ -231,9 +234,19 @@ QuadTree.prototype.queryNode = function(node, leftTop, rightBot) {
 
     }
 
-    return result;
-}
+    // result是所有的包含重复节点的结果
+    // 使用id来去重
+    var uniqueMap = {};
+    var uniqueArr = [];
+    for (var i = 0; i < result.length; i++) {
+        var tmpItem = result[i];
+        if (uniqueMap[tmpItem.id] == undefined) {
+            uniqueArr.push(tmpItem);
+            uniqueMap[tmpItem.id] = true;
+        } else {
+            console.log(uniqueMap[tmpItem.id])
+        }
+    }
 
-QuadTree.prototype.search = function() {
-
+    return uniqueArr;
 }

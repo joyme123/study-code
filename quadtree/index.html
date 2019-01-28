@@ -50,12 +50,12 @@
             var y2 = y1 + 70;
 
 
-            var item = new Item(new Point(x1,y1), new Point(x2, y2))
+            var item = new Item(new Point(x1,y1), new Point(x2, y2), i)
     
             quadTree.insert(item)
         }
 
-        console.log(quadTree)
+        console.log("四叉树", quadTree)
 
         // 将四叉树画在canvas上，注意坐标系的转换
         var node = quadTree.root;
@@ -63,7 +63,7 @@
         paint(node, level);
 
         var find = quadTree.query({x:0, y:0}, {x:400, y:300})
-        console.log(find)
+        console.log("查找出来的点", find)
         find.forEach(function(item) {
             ctx.fillStyle = "red"
             var x = item.topLeftP.x;
